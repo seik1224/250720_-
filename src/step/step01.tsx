@@ -38,6 +38,40 @@ const Step01 = () => {
         function myFunc(x?:number){}
     */
 
+    // union type : 여러타입 중 하나를 가질 수 있는 변수를 정의할 때 사용
+    const nameOrAge : string | number = '짱구';
+    const arr : (number | string)[]= [1, '2', 3];
+    const obj : {data : number | string} = { data:'123' }
+
+    // Literal type : 특정 값만 가질 수 있는 변수를 정의할 때 사용
+    const direction : 'left' | 'right' = 'left';
+
+    // any type : 아무 자료나 집어넣을 수 있는 타입
+    let age2 : any = '짱구';
+    age2 = 5;
+
+    // unkwon type : 타입을 모를때 사용, 사용전 타입체크 필요
+    let age3 : unknown = '짱구';
+    age3= 11;
+
+    if(typeof age3 === 'number'){
+        age3 = age3 + 1 ;
+    }
+
+    // Type Assertion : 타입을 확실하게 지정할 때 사용
+    const someVal :unknown ='HELLO';
+    const strLength : number = (someVal as string).length;
+
+    // Type Narrowing : 타입을 좁혀나가는 것
+    function printAge(age:number|string){
+        // string | number
+        if(typeof age === 'number'){
+            // number
+            console.log(age);
+        }
+    }
+    printAge(11);
+
     return (
         <div>{numbers}</div>
     )
