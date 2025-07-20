@@ -72,6 +72,24 @@ const Step01 = () => {
     }
     printAge(11);
 
+    // type : 타입을 변수에 담아 사용
+    type Status = 'active' | 'inactive';
+    const status : Status = 'active';
+
+    // Intersection type : 여러 타입을 합쳐 새로운 타입을 만드는 방법
+    type PosiX = { x : number};
+    type PosiY = { y : number};
+    type XandY = PosiX & PosiY;
+    const shape : XandY = {x:1, y:2};
+
+    // interface : 오브젝트 자료형의 타입을 보다 편리하게 지정
+    interface Person {
+        name : string;
+        age? : number;
+    }
+
+    const st : Person = { name :'짱구', age:5 }
+
     return (
         <div>{numbers}</div>
     )
